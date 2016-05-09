@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
-    buildcontorl: 'grunt-build-contorl'
+    buildcontrol: 'grunt-build-control'
   });
 
   // Configurable paths for the application
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     // Project settings
-    config: config,
+    yeoman: appConfig,
 
     buildcontrol: {
       options: {
