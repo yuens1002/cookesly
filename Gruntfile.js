@@ -15,9 +15,9 @@ module.exports = function (grunt) {
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
-    buildcontorl: 'grunt-build-contorl',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    buildcontorl: 'grunt-build-contorl'
   });
 
   // Configurable paths for the application
@@ -509,7 +509,13 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'concurrent:dist',
+//     'concurrent:dist',
+    
+    'sass',
+    'copy:styles',
+    'imagemin',
+    'svgmin',
+    
     'postcss',
     'ngtemplates',
     'concat',
@@ -522,7 +528,7 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
-
+  
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
