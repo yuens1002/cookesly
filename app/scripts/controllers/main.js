@@ -8,10 +8,12 @@
  * Controller of the cookbriteApp
  */
 angular.module('cookbriteApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, recipes) {
+    $scope.recipes = recipes.query();
+  
+    $scope.refreshRecipes = function(){
+        $scope.recipes = recipes.query({
+            ingredient: $scope.ingredient
+        });
+    };
   });
