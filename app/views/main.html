@@ -10,7 +10,7 @@
         <p>
           <button class="btn btn-lg btn-primary" ng-click="refreshRecipes()">Get Receipes</button>
         </p>
-      <dl>
+      <dl ng-if="recipes">
         <dt>Recipes Found: {{recipes.count}}</dt>
         <p>
         <dt><img ng-src="{{recipes.hits[0].recipe.image}}"></img></dt>

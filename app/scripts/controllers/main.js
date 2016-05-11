@@ -9,7 +9,7 @@
  */
 angular.module('cookbriteApp')
   .controller('MainCtrl', function ($scope, recipes) {
-    $scope.recipes = recipes.query();
+    
   
     $scope.refreshRecipes = function(){
         $scope.recipes = recipes.query({
