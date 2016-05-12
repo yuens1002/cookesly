@@ -11,7 +11,7 @@ angular.module('cookbriteApp')
   .controller('MainCtrl', function ($scope, recipes) {
     
   
-    $scope.refreshRecipes = function(){
+    $scope.getRecipes = function(){
         $scope.recipes = recipes.query({
             ingredient: $scope.ingredient
         });
