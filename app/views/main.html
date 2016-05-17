@@ -11,20 +11,24 @@
           <button class="btn btn-lg btn-primary" ng-click="getRecipes()">Get Receipes</button>
         </p>
       <dl ng-if="recipes">
+        
         <dt>Recipes Found: {{recipes.count}}</dt>
         <p>
-        <dt><img ng-src="{{recipes.hits[0].recipe.image}}"></img></dt>
-        <dt>{{recipes.hits[0].recipe.label}}</dt>
+        <div ng-repeat='eachRecipe in recipes.hits'>
+        <dt><img ng-src="{{eachRecipe.recipe.image}}"></img></dt>
+        <dt>{{eachRecipe.recipe.label}}</dt>
       <p>
         
-        <dt>Source: <img ng-src="{{recipes.hits[0].recipe.sourceIcon}}"> <a herf="{{recipes.hits[0].recipe.url}}" target="_blank">{{recipes.hits[0].recipe.source}}</a></dt>
-        <dt>Diet(s): <span class="" ng-repeat='dietLabel in recipes.hits[0].recipe.dietLabels'><span class="small">({{$index + 1}})</span> {{dietLabel}} </span></dt>
-        <dt>Health Labels(s): {{recipes.hits[0].recipe.healthLabels}}</dt>
-        <dt>Calories: {{recipes.hits[0].recipe.calories}}</dt>
-        <dt>Number of Ingredients: {{recipes.hits[0].recipe.ingredientLines.length}}<br><label>Show Ingredient List:
+        <dt>Source: <img ng-src="{{eachRecipe.recipe.sourceIcon}}" width="16"> <a ng-href="{{ eachRecipe.recipe.url }}" target="_blank">{{eachRecipe.recipe.source}}</a></dt>
+        <dt>Diet(s): <span class="" ng-repeat='dietLabel in eachRecipe.recipe.dietLabels'><span class="small">({{$index + 1}})</span> {{dietLabel}} </span></dt>
+        <dt>Health Labels(s): {{eachRecipe.recipe.healthLabels}}</dt>
+        <dt>Calories: {{eachRecipe.recipe.calories}}</dt>
+        <dt>Number of Ingredients: {{eachRecipe.recipe.ingredientLines.length}}<br><label>Show Ingredient List:
     <input type="checkbox" ng-model="checked">
   </label></dt>
-        <li class="check-element animate-show" ng-show='checked' ng-repeat="listIngredient in recipes.hits[0].recipe.ingredientLines">{{listIngredient}}</li>
+        <li class="check-element animate-show" ng-show='checked' ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li>
+        <hr>
+         </div>
         
       </dl>
     </div>

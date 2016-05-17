@@ -8,8 +8,9 @@
  * Controller of the cookbriteApp
  */
 angular.module('cookbriteApp')
-  .controller('MainCtrl', function ($scope, recipes) {
-    
+  .controller('MainCtrl', function ($scope, $sce, recipes) {
+  
+   
   
     $scope.getRecipes = function(){
         $scope.recipes = recipes.query({
