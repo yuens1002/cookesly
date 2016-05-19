@@ -17,7 +17,8 @@ angular.module('cookbriteApp')
                         query: {
                           method:'JSONP',
                           params: {
-                             starting: '0',
+                            // if needed, params: value(s) can be passed in from view 
+                            starting: '0',
                              ending: '12'
                           },
                           isArray:false
