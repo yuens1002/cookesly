@@ -1,21 +1,4 @@
 <section class="container-fluid" ng-app ng-controller="MainCtrl">
-  <header class="page-header row">
-    <div class="col-lg-6">
-      <p class="brand text-uppercase">CookBrite</p>
-      <p class="small">Get Recipe Ideas & Host an EventBrite Event</p>
-    </div>
-    <div class="col-lg-6">
-      <div class="input-group">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-        <label for="ingredient" class="sr-only">recipe search by ingredient or name</label>
-        <input class="form-control" type="search" name="ingredient" ng-model="ingredient" placeholder="ingredient(s) or name">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="getRecipes()">GO</button>
-        </span>
-      </div>
-      <p class="text-right small">powered by edamam</p>
-    </div>
-  </header>
   <section ng-if="recipes">
     <div class="row">
       <div class="col-xs-1">
@@ -32,7 +15,7 @@
         </svg>
       </div>
       <div class="col-xs-11">
-        <p><span class="text-uppercase h6">showing <span class="h4">{{recipes.to}}</span> recipes of <span class="h4">{{recipes.count}}</span> found</strong></span><br><span class="h3 text-capitalize">{{ingredient}}</span><br><br></p>
+        <p><span class="text-uppercase h6">showing <span class="h4">{{recipes.to}}</span> recipes of <span class="h4">{{recipes.count}}</span> found</strong></span><br><span class="h3 text-capitalize">{{searchString}}</span><br><br></p>
       </div>
     </div>  
     <div class="row">

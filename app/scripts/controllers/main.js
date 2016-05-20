@@ -13,6 +13,7 @@ angular.module('cookbriteApp')
    
   
     $scope.getRecipes = function(){
+        $scope.searchString = $scope.ingredient;
         $scope.recipes = recipes.query({
             ingredient: $scope.ingredient
         });
