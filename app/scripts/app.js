@@ -18,6 +18,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ui.bootstrap',
+    'ngStorage',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
@@ -31,6 +32,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/save', {
+        templateUrl: 'views/save.html',
+        controller: 'SaveCtrl',
+        controllerAs: 'save'
       })
       .otherwise({
         redirectTo: '/'

@@ -20,34 +20,29 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <header class="page-header container-fluid">
-      <div class="col-lg-6">
+    <header class="page-header container">
+      <div class="col-md-6">
         <p class="brand text-uppercase">CookBrite</p>
         <p class="small">Get Recipe Ideas & Host an EventBrite Event</p>
       </div>
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <div class="input-group">
           <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
           <label for="ingredient" class="sr-only">recipe search by ingredient or name</label>
           <input class="form-control" type="search" name="ingredient" ng-model="ingredient" placeholder="ingredient(s) or name">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="getRecipes()">GO</button>
+            <button tabindex="0" class="btn btn-default" type="button" ng-click="getRecipes()">GO</button>
           </span>
         </div>
         <p class="text-right small">powered by edamam</p>
       </div>
-    </header>
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
-
+    </header>  
+    <section ng-view class="container-fluid"></section>  
+    <footer class="footer">
+      <p class="small text-center text-muted">SU WATS 2000 Spring 2016, 
+      made with <span class="glyphicon glyphicon-heart"></span> by Sunny Yuen</p>
+    </footer>
+    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -73,6 +68,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -81,6 +77,8 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/recipes.js"></script>
+        <script src="scripts/services/save.js"></script>
+        <script src="scripts/controllers/save.js"></script>
         <!-- endbuild -->
 </body>
 </html>

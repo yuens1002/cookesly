@@ -1,0 +1,42 @@
+<div class="container">
+     <ul class="list-inline">
+      <li class="navbar-brand">
+        <svg height="50px" viewBox="0 0 50 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+          <title>red right arrow</title>
+          <desc>red right arrow</desc>
+          <defs></defs>
+          <g id="Search-Listing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Desktop-HD" transform="translate(-78.000000, -222.000000)" stroke-width="3" stroke="#F10724">
+                  <polyline id="right-arrow" points="80 224 114.016678 256.98959 80 292.856415"></polyline>
+              </g>
+          </g>
+        </svg>
+      </li>
+      <li>
+        <p class="navbar-text"><span class="h3">Saved Recipes</span><br><span class="text-uppercase h6">showing <span class="h4">{{savedRecipes.length}}</span> On Your List</span><br><br></p>
+      </li>
+    </ul>
+    <div ng-if="savedRecipes" class="row">
+      <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img ng-src="{{recipe.image}}" alt="{{recipe.label}}">
+          <div class="caption">
+            <h3>{{recipe.label}}</h3>
+            <p>by {{recipe.source}}<br><a ng-href="{{recipe.source_url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
+            <p>
+              <span class="h4">{{recipe.ingredients.length}}</span> Ingredients
+              <br>
+              <span class="h4">{{(recipe.calories / recipe.servings) | number:0}}</span> Cal/Srv of
+              <span class="h4">{{recipe.servings}}</span>
+            </p>
+            <ul class="list-inline"> 
+              <li><label>See Ingredients</label> <input type="checkbox" ng-model="checked"> | </li>
+              <li><span class="glyphicon glyphicon-heart-empty"></span> Delete</li>
+            </ul>   
+              <li class="check-element animate-show" ng-show='checked' ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
