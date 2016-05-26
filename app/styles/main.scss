@@ -10,9 +10,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // Font Import
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 
-* {
-    margin: 0;
-}
+/* Always bottom footer from 
+https://stackoverflow.com/questions/21324395/bootstrap-3-flush-footer-to-bottom-not-fixed/27864663#27864663 */
 
 html {
   position: relative;
@@ -25,20 +24,60 @@ body {
 .footer {
   position: absolute;
   bottom: 0;
-  padding-top: 50px;
+  padding-top: 65px;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 100px;
 }
 
+/* --------------------------------------------------------- */
 
 .brand {
   color: $brand-primary;
   font-weight: 700;
   letter-spacing: 1rem;
+  padding-top: 3.3rem;
+  padding-left: 2rem;
 }
 
-// stays @ the bottom of the page at all time but not fixed 
+.brand2 {
+  color: $brand-primary;
+  font-weight: 700;
+  font-size: 5rem;
+  letter-spacing: 1rem;
+  padding-left: 2rem;
+}
+
+.blinkPage {
+  margin-top: 30vh;
+  border-bottom-style: none;
+}
+
+.page {
+  margin-top: 2rem;
+}
+
+.thumbnail {
+  position: relative;
+  .label {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 6px #000000;
+    padding: 1rem 1.2rem 1rem 1rem;
+  }
+}
+
+.label-important {
+    background-color: none;
+}
+
+.glybottom {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 
 
 /* Responsive: Portrait tablets and up */
@@ -48,4 +87,11 @@ body {
   }
 }  
 
+@media screen and (max-width: 600px) {
+  .brand2 {
+    font-size: 1.7rem;
+    padding-top: 2.2rem;
+    padding-left: 2rem;
+  }
+}   
   

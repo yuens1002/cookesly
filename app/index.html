@@ -20,22 +20,24 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <header class="page-header container">
-      <div class="col-md-6">
-        <p class="brand text-uppercase">CookBrite</p>
-        <p class="small">Get Recipe Ideas & Host an EventBrite Event</p>
-      </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-          <label for="ingredient" class="sr-only">recipe search by ingredient or name</label>
-          <input class="form-control" type="search" name="ingredient" ng-model="ingredient" placeholder="ingredient(s) or name">
-          <span class="input-group-btn">
-            <button tabindex="0" class="btn btn-default" type="button" ng-click="getRecipes()">GO</button>
-          </span>
+    <header class="page-header container" ng-class="headerSpacing">
+        <div class="text-uppercase col-xs-7" ng-class="logo">CookBrite</div>
+        <div class="col-xs-5 list-inline small text-right glybottom">
+          <li class="text-center"><span class="glyphicon glyphicon-question-sign"></span><br>Tips</li>
+          <li class="text-center"><span class="glyphicon glyphicon-heart"></span><br>Recipes</li>
         </div>
-        <p class="text-right small">powered by edamam</p>
-      </div>
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <label for="ingredient" class="sr-only">recipe search by ingredient or name</label>
+            <input class="form-control" type="search" name="ingredient" ng-model="ingredient" placeholder="search by ingredient(s) or name">
+            <span class="input-group-btn">
+              <button tabindex="0" class="btn btn-default" type="button" ng-click="getRecipes()">GO</button>
+            </span>
+          </div>
+          <p class="text-right small">powered by edamam</p>
+        </div>
+           
     </header>  
     <section ng-view class="container-fluid"></section>  
     <footer class="footer">
@@ -69,15 +71,14 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angulargrid/angulargrid.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/recipes.js"></script>
-        <script src="scripts/services/save.js"></script>
         <script src="scripts/controllers/save.js"></script>
         <!-- endbuild -->
 </body>
