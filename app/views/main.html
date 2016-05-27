@@ -1,5 +1,6 @@
  <div ng-if="recipes" class="container">
-     <ul class="list-inline">
+   <hr>  
+   <ul class="list-inline">
       <li class="navbar-brand">
         <svg height="50px" viewBox="0 0 50 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
@@ -18,7 +19,7 @@
       </li>
     </ul>
     <div class="row">
-      <div ng-repeat="eachRecipe in recipes.hits" class="col-sm-6 col-md-4">
+      <div ng-repeat="eachRecipe in recipes.hits" class="col-xs-6 col-sm-4">
         <div class="thumbnail">
           <!-- only show badge if id of the item is in browser storage -->
           <!-- <span class="label label-danger"><fa name="heart" alt="recipe saved"></fa></span>  -->
