@@ -36,7 +36,7 @@
             <hr>
             <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
               <!-- only show button if id of the item isn't in browser storage -->
-            <a href ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>  
+            <a href ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button gly-text-alignment"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>  
               
           </div>
         </div>
