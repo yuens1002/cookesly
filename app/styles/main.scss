@@ -91,13 +91,22 @@ body {
   }
 }  
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
+  .brand2 {
+    font-size: 3.5rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
   .brand2 {
     font-size: 1.7rem;
     padding-top: 2.2rem;
     padding-left: 2rem;
   }
 }  
+
 
 @media screen and (max-height: 500px) {
   .blinkPage {

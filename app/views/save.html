@@ -1,4 +1,4 @@
-<div class="container">
+<div ng-if="savedRecipes" class="container">
      <hr>
      <ul class="list-inline">
       <li class="navbar-brand">
@@ -18,8 +18,8 @@
         <p class="navbar-text"><span class="h3">Saved Recipes</span><br><span class="text-uppercase h6">showing <span class="h4">{{savedRecipes.length}}</span> On Your List</span><br><br></p>
       </li>
     </ul>
-    <div ng-if="savedRecipes" class="row">
-      <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-sm-6 col-md-4">
+    <div class="row">
+      <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-xs-6 col-sm-4">
         <div class="thumbnail">
           <img ng-src="{{recipe.image}}" alt="{{recipe.label}}">
           <div class="caption">
