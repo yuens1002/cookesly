@@ -23,18 +23,17 @@
           <img ng-src="{{recipe.image}}" alt="{{recipe.label}}">
           <div class="caption">
             <h3>{{recipe.label}}</h3>
-            <p>by {{recipe.source}}<br><a ng-href="{{recipe.source_url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
+            <p>by {{recipe.source}}<br><a href ng-href="{{recipe.source_url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
             <p>
-              <span class="h4">{{recipe.ingredients.length}}</span> Ingredients
+              <span class="h4">{{recipe.ingredients.length}}</span> Ingredients <a href ng-click="showIngList = !showIngList"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
               <br>
               <span class="h4">{{(recipe.calories / recipe.servings) | number:0}}</span> Cal/Srv of
               <span class="h4">{{recipe.servings}}</span>
             </p>
-            <ul class="list-inline"> 
-              <li><label>See Ingredients</label> <input type="checkbox" ng-model="checked"> | </li>
-              <li><span class="glyphicon glyphicon-heart-empty"></span> Delete</li>
-            </ul>   
-              <li class="check-element animate-show" ng-show='checked' ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li>
+            <li ng-show="showIngList" ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li>
+            <hr>
+            <a ng-click="delRecipe(recipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+              
           </div>
         </div>
       </div>

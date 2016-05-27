@@ -6,9 +6,9 @@
           <title>red right arrow</title>
           <desc>red right arrow</desc>
           <defs></defs>
-          <g id="Search-Listing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Desktop-HD" transform="translate(-78.000000, -222.000000)" stroke-width="3" stroke="#F10724">
-                  <polyline id="right-arrow" points="80 224 114.016678 256.98959 80 292.856415"></polyline>
+          <g id="red-arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="red-arrow" transform="translate(-78.000000, -222.000000)" stroke-width="3" stroke="#F10724">
+                  <polyline id="red-arrow" points="80 224 114.016678 256.98959 80 292.856415"></polyline>
               </g>
           </g>
         </svg>
@@ -16,29 +16,27 @@
       <li>
         <p class="navbar-text"><span class="h3 text-capitalize">{{searchString}}</span><br><span class="text-uppercase h6">showing <span class="h4">{{recipes.to}}</span> recipes of <span class="h4">{{recipes.count}}</span> found</strong></span><br><br></p>
       </li>
-      <a ng-href="#/save" ng-if="storage.savedRecipes.length > 0"><li class="navbar-right text-center"><p class="navbar-text"><span class="glyphicon glyphicon-heart"></span><br>Saved Recipes</p></li></a>
     </ul>
     <div class="row">
       <div ng-repeat="eachRecipe in recipes.hits" class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <span class="label label-danger"><span class="glyphicon glyphicon-heart"></span></span>
+          <!-- only show badge if id of the item is in browser storage -->
+          <!-- <span class="label label-danger"><fa name="heart" alt="recipe saved"></fa></span>  -->
           <img ng-src="{{eachRecipe.recipe.image}}" alt="{{eachRecipe.recipe.label}}">
           <div class="caption">
             <h3>{{eachRecipe.recipe.label}}</h3>
             <p>by {{eachRecipe.recipe.source}}<br><a ng-href="{{eachRecipe.recipe.url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
             <p>
-              <span class="h4">{{eachRecipe.recipe.ingredientLines.length}}</span> Ingredients
+              <span class="h4">{{eachRecipe.recipe.ingredientLines.length}}</span> Ingredients <a href ng-click="showIngList = !showIngList"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
               <br>
-              <span class="h4">{{(eachRecipe.recipe.calories / eachRecipe.recipe.yield) | number:0}}</span> Cal/Srv of
-              <span class="h4">{{eachRecipe.recipe.yield}}</span>
+              <span class="h4">{{(eachRecipe.recipe.calories / eachRecipe.recipe.yield) | number:0}}</span> Cal/Srv of <span class="h4">{{eachRecipe.recipe.yield}}</span>
             </p>
-            <ul class="list-inline"> 
-              <li><input type="checkbox" ng-model="checked"> <label>See Ingredients</label> | </li>
-<!--               <alert type="success" close="hideAlert=true" ng-hide="hideAlert" class="ng-hide">Recipe Saved!</alert> -->
-              <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
-              <a ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>
-            </ul>   
-              <li class="check-element animate-show" ng-show='checked' ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li>
+            <li class="check-element animate-show" ng-show="showIngList" ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li>
+            <hr>
+            <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+              <!-- only show button if id of the item isn't in browser storage -->
+            <a href ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>  
+              
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome/fonts/";
 
 // bootstrap variables
 @import "variables";
 
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 
 // Font Import
@@ -16,10 +18,12 @@ https://stackoverflow.com/questions/21324395/bootstrap-3-flush-footer-to-bottom-
 html {
   position: relative;
   min-height: 100%;
+  
 }
 body {
   /* Margin bottom by footer height */
   margin-bottom: 100px;
+  background-image: url('../images/light_wool.png');
 }
 .footer {
   position: absolute;

@@ -20,6 +20,7 @@ angular
     'ui.bootstrap',
     'ngStorage',
     'angularGrid',
+    // 'picardy.fontawesome',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
