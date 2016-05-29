@@ -9,9 +9,20 @@
  */
 angular.module('cookbriteApp')
   .controller('MainCtrl', function ($scope, $localStorage, recipes) {
-     
-
-    $scope.alerts = [];
+  
+  $scope.popSearch = {
+    content: 'Recipe search can be done by entering an ingredient or name.  For more than one ingredient, enter each ingredient followed by a comma.  For example: walnut, apple, salad',
+    title: 'Search Tips',
+  };
+    
+   //check if recipe has been saved by id
+    $scope.isSaved = function (ID) {
+      for (var i = 0; i < $localStorage.savedRecipes.length; i++) {
+        if ($localStorage.savedRecipes[i].id == ID) {
+          return true;
+        }
+      } 
+    }
 
     // sets the classes used for the start of the page 
     $scope.headerSpacing = 'blinkPage';
@@ -34,12 +45,20 @@ angular.module('cookbriteApp')
         'calories': recipe.recipe.calories,
         'id': recipe.recipe.uri
       };
+      
+      // define alert param
+      $scope.alerts = 
+        [
+        {type:'success', msg: 'Recipe Saved!', recipeID: recipeData.id},
+        {type:'danger', msg: 'the search box is empty, try entering a name of a dish or an ingredient in the search box to perform a search'}
+        ];
+      
       if (!$localStorage.savedRecipes){
         $localStorage.savedRecipes = [recipeData];
         // storages sync upon save
         $scope.storage = $localStorage;
         // alert('recipe saved');
-        $scope.alerts.push({type:'success', msg: 'Recipe saved!', recipeID: recipeData.id});
+        $scope.alerts[0];
       } else {
         var save = true;
         for (var i=0; i < $localStorage.savedRecipes.length; i++) {
@@ -51,21 +70,28 @@ angular.module('cookbriteApp')
           $localStorage.savedRecipes.push(recipeData);
           // storages sync upon push
           $scope.storage = $localStorage;
-          $scope.alerts.push({type:'success', msg: 'Recipe saved!', recipeID: recipeData.id});
-        } else {
-          $scope.alerts.push({type:'danger', msg: 'Recipe already saved!', recipeID: recipeData.id});
+          // alert('recipe saved');
+          $scope.alerts[0];
         }
        }
       };
-  
+    
+    //manual alert close
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
     
+    $scope.isEnterKey = function(event){
+        // checks to see if the key is the ENTER key
+      if (event.keyCode === 13) {
+        $scope.getRecipes();
+      }
+    };
+  
     $scope.getRecipes = function(){
-        // if query is left empty, don't assign, display alert();
+        // if query is left empty, don't assign, change placeholder text;
         if (!$scope.ingredient) {
-          alert('search field is empty');
+          document.getElementById("searchInput").placeholder = 'try entering an ingredient...';
         } else {
         // saving the search string to display as  
         // the title of the page so that it does not
@@ -77,6 +103,8 @@ angular.module('cookbriteApp')
         });
         // resets the search input field each time the API is called
         $scope.ingredient = '';
+        //reverts the placeholder text to default if it had been changed by the empty input check
+        document.getElementById("searchInput").placeholder = 'recipe search by ingredient or name';  
         $scope.headerSpacing = 'page'; 
         $scope.logo = 'brand';   
           

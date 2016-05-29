@@ -19,10 +19,10 @@
       </li>
     </ul>
     <div class="row">
-      <div ng-repeat="eachRecipe in recipes.hits" class="col-xs-6 col-sm-4">
+      <div ng-repeat="eachRecipe in recipes.hits" class="col-xs-12 col-sm-4">
         <div class="thumbnail">
           <!-- only show badge if id of the item is in browser storage -->
-          <!-- <span class="label label-danger"><fa name="heart" alt="recipe saved"></fa></span>  -->
+          <a href ng-href="#/save" ng-if="isSaved(eachRecipe.recipe.uri)"><span class="label label-danger"><span class="glyphicon glyphicon-heart"></span></span></a>
           <img ng-src="{{eachRecipe.recipe.image}}" alt="{{eachRecipe.recipe.label}}">
           <div class="caption">
             <h3>{{eachRecipe.recipe.label}}</h3>
@@ -32,11 +32,11 @@
               <br>
               <span class="h4">{{(eachRecipe.recipe.calories / eachRecipe.recipe.yield) | number:0}}</span> Cal/Srv of <span class="h4">{{eachRecipe.recipe.yield}}</span>
             </p>
-            <li class="check-element animate-show" ng-show="showIngList" ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li>
-            <hr>
-            <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+            <li ng-show="showIngList" ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li>
+            <hr ng-show="!isSaved(eachRecipe.recipe.uri)">  
+            <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="2000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
               <!-- only show button if id of the item isn't in browser storage -->
-            <a href ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button gly-text-alignment"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>  
+            <a href ng-show="!isSaved(eachRecipe.recipe.uri)" ng-click="saveRecipe(eachRecipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-heart-empty"></span> Save</a>
               
           </div>
         </div>
