@@ -18,8 +18,8 @@
         <p class="navbar-text"><span class="glyphicon glyphicon-heart" alt="saved"></span> <span class="h3">Recipes</span><br><span class="text-uppercase h6">showing <span class="h4">{{savedRecipes.length}}</span> On Your List</span><br><br></p>
       </li>
     </ul>
-    <div class="row">
-      <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-xs-12 col-sm-4">
+    <div angular-grid="savedRevipes" class="row dynamic-grid" ag-options="angularGridOptions">
+      <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-sm-6 col-md-4 grid">
         <div class="thumbnail">
           <img ng-src="{{recipe.image}}" alt="{{recipe.label}}">
           <div class="caption">

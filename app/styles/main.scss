@@ -1,6 +1,9 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 $fa-font-path: "../bower_components/font-awesome/fonts/";
 
+//css tranistions, needs to be above so id doesn't overwrite bootstrap styles
+@import "transitions";
+
 // bootstrap variables
 @import "variables";
 
@@ -12,8 +15,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts/";
 // Font Import
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 
-/* Always bottom footer from 
-https://stackoverflow.com/questions/21324395/bootstrap-3-flush-footer-to-bottom-not-fixed/27864663#27864663 */
+
 
 html {
   position: relative;
@@ -28,10 +30,53 @@ body {
 .footer {
   position: absolute;
   bottom: 0;
-  padding-top: 65px;
   width: 100%;
+  padding-top: 55px;
   /* Set the fixed height of the footer here */
   height: 100px;
+}
+
+ul { padding-left: 1.2em; }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/* angular grid --------------------------------------------------------- */
+
+
+.dynamic-grid {
+  position: relative;
+  display: none;
+}
+.dynamic-grid.angular-grid {
+  display: block;
+}
+.grid {
+  box-sizing: border-box;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+.grid.ng-leave {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+}
+.grid.ng-leave.ng-leave-active {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transform: scale(0.5);
+   transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter.ng-enter-active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* --------------------------------------------------------- */
@@ -53,7 +98,7 @@ body {
 }
 
 .blinkPage {
-  margin-top: 30vh;
+  margin-top: 25vh;
   border-bottom-style: none;
 }
 

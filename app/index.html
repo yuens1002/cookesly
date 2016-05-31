@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,11 +22,14 @@
 
     <!-- Add your site or application content here -->
     <div class="container" ng-class="headerSpacing">
-        <div class="text-uppercase col-xs-7" ng-class="logo">CookBrite</div>
+      <div class="row">  
+      <div class="text-uppercase col-xs-7" ng-class="logo">CookBrite</div>
         <div class="col-xs-5 list-inline small text-right glybottom">
           <li class="text-center" uib-popover="{{popSearch.content}}" popover-title="{{popSearch.title}}" popover-trigger="mouseenter" popover-placement="auto bottom"><span class="glyphicon glyphicon-question-sign"></span><br>Tips</li>
           <li class="text-center"><a herf ng-href="#/save" ng-if="storage.savedRecipes.length > 0"><span class="glyphicon glyphicon-heart"></span><br>Recipes</a></li>
         </div>
+      </div>
+      <div class="row">
         <div class="col-xs-12">
           <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
@@ -37,10 +41,11 @@
           </div>
           <p class="text-right small">powered by edamam</p>
         </div>
-    </div>  
-    <section ng-view class="container-fluid"></section>  
-    <footer class="footer">
-      <p class="small text-muted text-center">SU WATS 2000 Spring 2016. 
+    </div>
+    </div>
+    <section ng-view></section>  
+    <footer class="container-fluid footer text-center">
+      <p class="small text-muted">SU WATS 2000 Spring 2016. 
       Fab with <span class="glyphicon glyphicon-heart"></span> Sunny Yuen.  Get Involved <a href ng-href="https://github.com/yuens1002/cookbrite" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i></a> Fork It.</p>
     </footer>
     
@@ -72,6 +77,15 @@
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/angulargrid/angulargrid.js"></script>
     <script src="bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+    <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

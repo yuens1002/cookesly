@@ -20,6 +20,7 @@ angular
     'ui.bootstrap',
     'ngStorage',
     'angularGrid',
+    //'wu.masonry',
     // 'picardy.fontawesome',
     'ngTouch'
   ])
@@ -27,7 +28,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        controller: 'MainCtrl', 
         controllerAs: 'main'
       })
       .when('/about', {

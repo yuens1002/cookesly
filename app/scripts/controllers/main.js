@@ -10,6 +10,9 @@
 angular.module('cookbriteApp')
   .controller('MainCtrl', function ($scope, $localStorage, recipes) {
   
+  $scope.isCollapsed = true;
+  
+  //msg for pop tips on homepage
   $scope.popSearch = {
     content: 'Recipe search can be done by entering an ingredient or name.  For more than one ingredient, enter each ingredient followed by a comma.  For example: walnut, apple, salad',
     title: 'Search Tips',

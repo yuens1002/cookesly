@@ -1,0 +1,14 @@
+uib-alert[ng-Repeat].ng-move {
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+
+a[ng-if].ng-enter {
+   -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+li[ng-show].ng-leave {
+  -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
