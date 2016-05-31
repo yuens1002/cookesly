@@ -10,7 +10,10 @@
 angular.module('cookbriteApp')
   .controller('MainCtrl', function ($scope, $localStorage, recipes) {
   
-  $scope.isCollapsed = true;
+  $scope.showList = function () {
+    $scope.showIngList = !$scope.showIngList;
+    $scope.refresh();
+  };
   
   //msg for pop tips on homepage
   $scope.popSearch = {

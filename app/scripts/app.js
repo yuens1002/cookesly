@@ -20,7 +20,6 @@ angular
     'ui.bootstrap',
     'ngStorage',
     'angularGrid',
-    //'wu.masonry',
     // 'picardy.fontawesome',
     'ngTouch'
   ])

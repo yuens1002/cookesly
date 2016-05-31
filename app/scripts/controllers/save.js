@@ -8,7 +8,7 @@
  * Controller of the cookbriteApp
  */
 angular.module('cookbriteApp')
-  .controller('SaveCtrl', function ($scope, $localStorage) {  
+  .controller('SaveCtrl', function ($scope, $localStorage) { 
   
     //getting the data from storage to scope for the view  
     $scope.savedRecipes = $localStorage.savedRecipes;
