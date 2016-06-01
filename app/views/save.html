@@ -31,7 +31,7 @@
               <span class="h4">{{(recipe.calories / recipe.servings) | number:0}}</span> Cal/Srv of
               <span class="h4">{{recipe.servings}}</span>
             </p>
-            <ul uib-collapse="isCollapsed" expanded="reflow()" collapsed="reflow()"><li ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li></ul>
+            <ul uib-collapse="isCollapsed" expanded="reflow()" collapsing="reflow()"><li ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li></ul>
             <hr>
             <a ng-click="delRecipe(recipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-remove"></span> Delete</a>
               
