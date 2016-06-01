@@ -8,7 +8,16 @@
  * Controller of the cookbriteApp
  */
 angular.module('cookbriteApp')
-  .controller('SaveCtrl', function ($scope, $localStorage) { 
+  .controller('SaveCtrl', function ($scope, $localStorage, angularGridInstance) { 
+    
+    //sets the intital state of the ingredient list
+    $scope.isCollapsed = true;
+
+    // reflow the page when the ingredient list is opened / collapased
+    $scope.reflow = function () {
+      // console.log("i'm here");
+      angularGridInstance.gallery.refresh();
+    };  
   
     //getting the data from storage to scope for the view  
     $scope.savedRecipes = $localStorage.savedRecipes;

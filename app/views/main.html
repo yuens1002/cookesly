@@ -20,21 +20,21 @@
     </ul>
     
     
-    <div class="dynamic-grid row" angular-grid="recipes.hits" ag-id="recipeList" ag-options="angularGridOptions">
+    <div class="dynamic-grid row" ag-id="gallery" angular-grid="recipes.hits" ag-options="angularGridOptions">
       <div ng-repeat="eachRecipe in recipes.hits" class="col-sm-6 col-md-4 grid">
         <div class="thumbnail">
           <!-- only show badge if id of the item is in browser storage -->
-          <a href ng-href="#/save" ng-if="isSaved(eachRecipe.recipe.uri)"><span class="label label-danger"><span class="glyphicon glyphicon-heart"></span></span></a>
+          <a href ng-href="#/save" ng-if="isSaved(eachRecipe.recipe.uri)"><span class="label label-danger animated zoomIn"><span class="glyphicon glyphicon-heart"></span></span></a>
           <img ng-src="{{eachRecipe.recipe.image}}" alt="{{eachRecipe.recipe.label}}">
           <div class="caption">
             <h3>{{eachRecipe.recipe.label}}</h3>
             <p>by {{eachRecipe.recipe.source}}<br><a ng-href="{{eachRecipe.recipe.url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
             <p>
-              <span class="h4">{{eachRecipe.recipe.ingredientLines.length}}</span> Ingredients <a href ng-click="showIngList=!showIngList"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
+              <span class="h4">{{eachRecipe.recipe.ingredientLines.length}}</span> Ingredients <a href ng-click="isCollapsed = !isCollapsed"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
               <br>
               <span class="h4">{{(eachRecipe.recipe.calories / eachRecipe.recipe.yield) | number:0}}</span> Cal/Srv of <span class="h4">{{eachRecipe.recipe.yield}}</span>
             </p>
-            <ul><li ng-show="showIngList" ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li></ul>
+            <ul uib-collapse="isCollapsed" expanded="reflow()" collapsed="reflow()"><li ng-repeat="listIngredient in eachRecipe.recipe.ingredientLines">{{listIngredient}}</li></ul>
             <hr ng-show="!isSaved(eachRecipe.recipe.uri)">  
             <uib-alert ng-if="alert.recipeID==eachRecipe.recipe.uri" ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="2000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
               <!-- only show button if id of the item isn't in browser storage -->

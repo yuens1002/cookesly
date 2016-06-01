@@ -18,7 +18,7 @@
         <p class="navbar-text"><span class="glyphicon glyphicon-heart" alt="saved"></span> <span class="h3">Recipes</span><br><span class="text-uppercase h6">showing <span class="h4">{{savedRecipes.length}}</span> On Your List</span><br><br></p>
       </li>
     </ul>
-    <div class="dynamic-grid row" angular-grid="savedRecipes">
+    <div class="dynamic-grid row" angular-grid="savedRecipes" ag-id="gallery">
       <div ng-repeat="recipe in savedRecipes | orderBy:'-'" class="col-sm-6 col-md-4 grid">
         <div class="thumbnail">
           <img ng-src="{{recipe.image}}" alt="{{recipe.label}}">
@@ -26,12 +26,12 @@
             <h3>{{recipe.label}}</h3>
             <p>by {{recipe.source}}<br><a href ng-href="{{recipe.source_url}}" target="_blank" class="text-capitalize">Read cooking instructions</a></p>
             <p>
-              <span class="h4">{{recipe.ingredients.length}}</span> Ingredients <a href ng-click="showIngList=!showIngList"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
+              <span class="h4">{{recipe.ingredients.length}}</span> Ingredients <a href ng-click="isCollapsed = !isCollapsed"><span class="h4"><span class="glyphicon glyphicon-menu-down"></span></span></a>
               <br>
               <span class="h4">{{(recipe.calories / recipe.servings) | number:0}}</span> Cal/Srv of
               <span class="h4">{{recipe.servings}}</span>
             </p>
-            <ul><li ng-show="showIngList" ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li></ul>
+            <ul uib-collapse="isCollapsed" expanded="reflow()" collapsed="reflow()"><li ng-repeat="Ingredient in recipe.ingredients">{{Ingredient}}</li></ul>
             <hr>
             <a ng-click="delRecipe(recipe)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-remove"></span> Delete</a>
               

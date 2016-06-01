@@ -8,11 +8,15 @@
  * Controller of the cookbriteApp
  */
 angular.module('cookbriteApp')
-  .controller('MainCtrl', function ($scope, $localStorage, recipes) {
+  .controller('MainCtrl', function ($scope, $localStorage, recipes, angularGridInstance) {
   
-  $scope.showList = function () {
-    $scope.showIngList = !$scope.showIngList;
-    $scope.refresh();
+  //sets the intital state of the ingredient list
+  $scope.isCollapsed = true;
+  
+  // reflow the page when the ingredient list is opened / collapased
+  $scope.reflow = function () {
+    // console.log("i'm here");
+    angularGridInstance.gallery.refresh();
   };
   
   //msg for pop tips on homepage
@@ -55,8 +59,10 @@ angular.module('cookbriteApp')
       // define alert param
       $scope.alerts = 
         [
-        {type:'success', msg: 'Recipe Saved!', recipeID: recipeData.id},
-        {type:'danger', msg: 'the search box is empty, try entering a name of a dish or an ingredient in the search box to perform a search'}
+           // the recipeID key is to match the 
+           // id of recipe in view to avoid msg 
+           // displayed for all recipes in view
+          {type:'success', msg: 'Recipe Saved!', recipeID: recipeData.id}
         ];
       
       if (!$localStorage.savedRecipes){
@@ -78,6 +84,7 @@ angular.module('cookbriteApp')
           $scope.storage = $localStorage;
           // alert('recipe saved');
           $scope.alerts[0];
+          
         }
        }
       };
@@ -85,6 +92,8 @@ angular.module('cookbriteApp')
     //manual alert close
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
+      // reflow page
+      angularGridInstance.gallery.refresh();
     };
     
     $scope.isEnterKey = function(event){
@@ -97,7 +106,9 @@ angular.module('cookbriteApp')
     $scope.getRecipes = function(){
         // if query is left empty, don't assign, change placeholder text;
         if (!$scope.ingredient) {
-          document.getElementById("searchInput").placeholder = 'try entering an ingredient...';
+          document.getElementById('searchInput').placeholder = 'try entering an ingredient here...';
+          document.getElementById('searchInput').className += ' animated shake';
+          
         } else {
         // saving the search string to display as  
         // the title of the page so that it does not

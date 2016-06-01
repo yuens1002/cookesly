@@ -1,7 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 $fa-font-path: "../bower_components/font-awesome/fonts/";
 
-//css tranistions, needs to be above so id doesn't overwrite bootstrap styles
+//css tranistions, needs to be above bootstrap so id doesn't overwrite bootstrap styles
 @import "transitions";
 
 // bootstrap variables
@@ -20,6 +20,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts/";
 html {
   position: relative;
   min-height: 100%;
+  min-width: 340px;
   
 }
 body {
@@ -36,11 +37,32 @@ body {
   height: 100px;
 }
 
+// unindent bullets from list but keep multiline indended
 ul { padding-left: 1.2em; }
 
+// ui defaults from angular-bootstrap-ui
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-/* angular grid --------------------------------------------------------- */
+li[uib-popover] {
+  cursor: pointer;
+}
+
+li[uib-popover]:hover {
+  color: $brand-primary;
+  text-decoration: none;
+}
+
+.glyLink:link, .glyLink:visited, .glyLink:active  {
+    color: $gray-dark;
+    text-decoration: none;
+  }
+
+.glyLink:hover  {
+    color: $brand-primary;
+    text-decoration: none;
+  }
+
+/* angular grid --------------------------------------------- */
 
 
 .dynamic-grid {
@@ -50,44 +72,9 @@ ul { padding-left: 1.2em; }
 .dynamic-grid.angular-grid {
   display: block;
 }
-.grid {
-  box-sizing: border-box;
-  -webkit-transition: all 400ms ease;
-  transition: all 400ms ease;
-}
-.grid.ng-leave {
-  -webkit-transition: all ease 400ms;
-  transition: all ease 400ms;
-}
-.grid.ng-leave.ng-leave-active {
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  opacity: 0;
-}
-.grid.ng-enter {
-  -webkit-transition: all ease 400ms;
-  transition: all ease 400ms;
-  -webkit-transition-delay: 500ms;
-  transition-delay: 500ms;
-  -webkit-transform: scale(0.5);
-   transform: scale(0.5);
-  opacity: 0;
-}
-.grid.ng-enter.ng-enter-active {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-}
+
 
 /* --------------------------------------------------------- */
-
-.brand {
-  color: $brand-primary;
-  font-weight: 700;
-  letter-spacing: 1rem;
-  padding-top: 3.3rem;
-  padding-left: 2rem;
-}
 
 .brand2 {
   color: $brand-primary;
@@ -96,6 +83,20 @@ ul { padding-left: 1.2em; }
   letter-spacing: 1rem;
   padding-left: 2rem;
 }
+
+.brand {
+  @extend .brand2;
+  padding-top: 0;
+  font-size: inherit;
+}
+
+.brand2, .brand {
+  a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+    color: $brand-primary;
+  }
+}
+
 
 .blinkPage {
   margin-top: 25vh;
@@ -129,12 +130,20 @@ ul { padding-left: 1.2em; }
   margin-bottom: 1rem;
 }
 
+
+@media screen and (min-width: 651px) {
+  .brand2 {
+    font-size: 5rem;
+  }
+} 
+
 /* Responsive: Portrait tablets and up  */
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 980px;
   }
-}  
+}
+
 
 @media screen and (max-width: 650px) {
   .brand2 {

@@ -1,14 +1,28 @@
-uib-alert[ng-Repeat].ng-move {
-    -webkit-animation: fadeIn 2s;
-    animation: fadeIn 2s;
+.grid {
+  box-sizing: border-box;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
 }
-
-a[ng-if].ng-enter {
-   -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+.grid.ng-leave {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
 }
-
-li[ng-show].ng-leave {
-  -webkit-animation: fadeIn 2s;
-    animation: fadeIn 2s;
+.grid.ng-leave.ng-leave-active {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transform: scale(0.5);
+   transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter.ng-enter-active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
 }
