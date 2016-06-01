@@ -1,12 +1,6 @@
-# cookbrite
+# CookBrite
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+An angularJS webapp for SU WATS2000 Spring 2016.  This app uses a JSONP API call to Edamam for their database of recipes from aggregate sources.  The app lets users query and browse recipes, safe recipes in browser storage, and delete saved recipes from browser storge.  
 
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+## Current Project build
+[http://yuens.work/cookbrite](http://yuens.work/cookbrite)
