@@ -1,8 +1,8 @@
 # COOKESLY
 
-An angularJS webapp for SU WATS2000 Spring 2016.  This app uses a JSONP API call to Edamam for their database of recipes from aggregate sources.  The app lets users query and browse recipes, and save/delete recipes in browser storage.  
+An angularJS webapp for SU WATS 2000 Spring 2016.  This app uses a JSONP API call to [Edamam](http://www.edamam.com) for their database of recipes from aggregate sources.  The app lets users query and browse recipes, then save or delete recipes in browser storage.  
 
-## Current Project build
+## Current Project Build
 [http://ckly.yuens.work](http://ckly.yuens.work)
 
 ## Future Feature Releases
